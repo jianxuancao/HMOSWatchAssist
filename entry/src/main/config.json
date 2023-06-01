@@ -29,7 +29,7 @@
       {
         "pages": [
           "pages/index/index",
-          "pages/page1/page"
+          "pages/countDown/page"
         ],
         "name": "default"
       }

@@ -1,3 +1,5 @@
+import router from '@system.router';
+
 export default {
     data: {
         title: "",
@@ -49,6 +51,11 @@ export default {
     reset() {
         this.waterCount = 0;
         this.updateText();
+    },
+    nextPage() {
+        router.replace({
+            uri: 'pages/countDown/page'
+        });
     }
 }
 

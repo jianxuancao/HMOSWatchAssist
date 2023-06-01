@@ -13,6 +13,7 @@
             <input type="button" class="rightBtn" onclick="minusWater" onlongpress="decreaseTotal" value="-"/>
             <input type="button" class="leftBtn" onclick="plusWater" onlongpress="increaseTotal" value="+"/>
         </div>
-
     </div>
+
+    <input type="button" class="nextPage" onclick="nextPage" value="下一页"/>
 </stack>

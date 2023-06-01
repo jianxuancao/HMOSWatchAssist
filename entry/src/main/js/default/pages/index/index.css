@@ -20,7 +20,6 @@
     width: 200px;
     height: 35%;
     font-size: 38fp;
-/*    font-size: 30fp;*/
     text-align: center;
 }
 
@@ -44,5 +43,11 @@
     height: 90px;
     font-size: 30px;
     background-color: red;
+}
+
+.nextPage {
+    width: 100%;
+    height: 17%;
+    top: 85%;
 }
 
