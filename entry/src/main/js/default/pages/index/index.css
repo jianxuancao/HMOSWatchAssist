@@ -1,3 +1,8 @@
+.min-progress {
+    width: 100%;
+    height: 100%;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -11,6 +16,14 @@
     height: 100%;
 }
 
+.title .title2 {
+    width: 200px;
+    height: 35%;
+    font-size: 38fp;
+/*    font-size: 30fp;*/
+    text-align: center;
+}
+
 .btnContainer {
     width: 100%;
     height: 20%;
@@ -18,27 +31,18 @@
     align-items: center;
 }
 
-.title {
-    width: 200px;
-    font-size: 30px;
-    text-align: center;
-}
-
 .leftBtn {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     font-size: 30px;
     background-color: green;
+    margin-left: 30px;
 }
 
 .rightBtn {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     font-size: 30px;
     background-color: red;
 }
 
-.min-progress {
-    width: 100%;
-    height: 100%;
-}

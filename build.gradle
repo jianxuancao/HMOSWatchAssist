@@ -3,6 +3,17 @@ apply plugin: 'com.huawei.ohos.app'
 
 //For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/ide_debug_device-0000001053822404-V3#section1112183053510
 ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\p12\\p12.p12')
+            storePassword '000000197033F0CEBBC63367A20CC0DF41CBAE95EF3CA811DC220E05A3BE27424DA665EC4C2A9F6EF1'
+            keyAlias = 'Assist'
+            keyPassword '000000197C15E5619A6C0FF7C74E3F57F15E1E69C23C7AD90B312A1BD7CEC6964805A0A7EFCAE77C43'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\p7b\\AssistDebug.p7b')
+            certpath file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\CER\\Assist.cer')
+        }
+    }
     compileSdkVersion 7
 }
 

@@ -2,6 +2,9 @@
     <progress type="arc" class="min-progress" percent="{{ percentage }}"/>
 
     <div class="container">
+        <text class="title1" onlongpress="reset">
+            {{ text }}
+        </text>
         <text class="title" onlongpress="reset">
             {{ title }}
         </text>
@@ -12,5 +15,4 @@
         </div>
 
     </div>
-
 </stack>
