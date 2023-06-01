@@ -1,5 +1,8 @@
 import router from '@system.router';
 
+var data3 = null;
+var data4 = null;
+
 export default {
     data: {
         title: "",
@@ -7,17 +10,23 @@ export default {
         percentage: 0
     },
     onInit() {
+        data3 = this.data1;
+        data4 = this.data2;
         this.title = "距离下班还有";
         this.update();
         setInterval(this.update, 1000); // 每隔1秒调用一次
     },
     prevPage() {
         router.replace({
-            uri: 'pages/index/index'
+            uri: 'pages/index/index',
+            params: {
+                "data3": data3,
+                "data4": data4
+            }
         });
     },
     update() {
-        var now = new Date().getTime();// 获取当前时间的时间戳
+        var now = new Date().getTime(); // 获取当前时间的时间戳
 
         // 设置每天的17:30时间的时间戳
         var targetTime = new Date();
