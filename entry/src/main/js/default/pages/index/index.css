@@ -1,0 +1,44 @@
+.container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stack-parent {
+    width: 100%;
+    height: 100%;
+}
+
+.btnContainer {
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 200px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.leftBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    background-color: green;
+}
+
+.rightBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    background-color: red;
+}
+
+.min-progress {
+    width: 100%;
+    height: 100%;
+}
