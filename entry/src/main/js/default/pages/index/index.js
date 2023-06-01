@@ -1,8 +1,5 @@
 import router from '@system.router';
 
-var data1 = null;
-var data2 = null;
-
 export default {
     data: {
         title: "",
@@ -13,13 +10,7 @@ export default {
         percentage: 0.0
     },
     onInit() {
-        if (this.data3 != undefined) {
-            this.waterCount = this.data3;
-            this.totalWaterCount = this.data4;
-            this.updateText();
-        }
-
-        this.title = this.waterCount + "/" + this.totalWaterCount;
+        this.updateText();
     },
     updateText() {
         this.title = this.waterCount + "/" + this.totalWaterCount;
@@ -62,14 +53,8 @@ export default {
         this.updateText();
     },
     nextPage() {
-        data1 = this.waterCount;
-        data2 = this.totalWaterCount;
         router.replace({
-            uri: 'pages/countDown/page',
-            params: {
-                "data1": data1,
-                "data2": data2
-            }
+            uri: 'pages/countDown/page'
         });
     }
 }

@@ -5,13 +5,13 @@ apply plugin: 'com.huawei.ohos.app'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\p12\\p12.p12')
-            storePassword '000000197033F0CEBBC63367A20CC0DF41CBAE95EF3CA811DC220E05A3BE27424DA665EC4C2A9F6EF1'
+            storeFile file('C:\\Users\\jianx\\DevEcoStudioProjects\\HMWatchAssist\\WatchGT\\p12\\p12.p12')
+            storePassword '000000194778777EFB3A6ABC9F69210571685650864BE2BC1E7C8AD560434DC2D1EF8E7D0AE2387210'
             keyAlias = 'Assist'
-            keyPassword '000000197C15E5619A6C0FF7C74E3F57F15E1E69C23C7AD90B312A1BD7CEC6964805A0A7EFCAE77C43'
+            keyPassword '00000019D867F4E2C4085654B20E992D990C9CB4AF8DCE49B836FE6B592FB0AA30ED2A7B2C4C47DED3'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\p7b\\AssistDebug.p7b')
-            certpath file('C:\\Users\\jianx\\DevEcoStudioProjects\\Assist\\WatchGT\\CER\\Assist.cer')
+            profile file('C:\\Users\\jianx\\DevEcoStudioProjects\\HMWatchAssist\\WatchGT\\p7b\\AssistDebug.p7b')
+            certpath file('C:\\Users\\jianx\\DevEcoStudioProjects\\HMWatchAssist\\WatchGT\\CER\\Assist.cer')
         }
     }
     compileSdkVersion 7

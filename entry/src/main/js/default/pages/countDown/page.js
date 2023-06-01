@@ -1,8 +1,5 @@
 import router from '@system.router';
 
-var data3 = null;
-var data4 = null;
-
 export default {
     data: {
         title: "",
@@ -10,19 +7,13 @@ export default {
         percentage: 0
     },
     onInit() {
-        data3 = this.data1;
-        data4 = this.data2;
         this.title = "距离下班还有";
         this.update();
         setInterval(this.update, 1000); // 每隔1秒调用一次
     },
     prevPage() {
         router.replace({
-            uri: 'pages/index/index',
-            params: {
-                "data3": data3,
-                "data4": data4
-            }
+            uri: 'pages/index/index'
         });
     },
     update() {
@@ -45,6 +36,10 @@ export default {
 
         // 计算，更新百分比
         this.percentage = 100 - (timeDiff / totalDuration) * 100;
+
+        if (timeDiff <= 0) {
+            this.title = "下班了，赶紧滚蛋";
+        }
 
         // 时间差->小时和分钟
         var hours = Math.floor(timeDiff / (1000 * 60 * 60));
