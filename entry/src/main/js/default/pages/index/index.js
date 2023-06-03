@@ -13,9 +13,12 @@ export default {
         percentage: 0.0
     },
     onInit() {
-        this.updateText();
+        storageGet();
+        setInterval(this.updateText, 100); // 每隔1秒调用一次
     },
-
+    onDestroy() {
+        storageSet();
+    },
     updateText() {
         this.title = waterCount + "/" + totalWaterCount;
         this.percentage = waterCount * 100 / totalWaterCount;
@@ -27,47 +30,66 @@ export default {
         } else {
             index = 0;
         }
-        this.text = this.textBank[index];
 
-        vibrator.vibrate({
-            mode: 'short',
-            success() {
-                console.log('success to vibrate');
-            },
-            fail(data, code) {
-                console.log('handle fail, data :' + data + ', code :' + code);
-            },
-        });
+        this.text = this.textBank[index];
     },
     plusWater() {
         waterCount++;
         this.updateText();
+        storageSet();
     },
     minusWater() {
         if (waterCount != 0) {
             waterCount--;
         }
         this.updateText();
+        storageSet();
     },
     increaseTotal() {
         totalWaterCount++;
         this.updateText();
+        storageSet();
     },
     decreaseTotal() {
         totalWaterCount--;
-
         if (totalWaterCount <= 0) {
             totalWaterCount = 1;
         }
         this.updateText();
+        storageSet();
     },
     reset() {
         waterCount = 0;
         this.updateText();
+        storageSet();
     },
     nextPage() {
+        storageSet();
         router.replace({
             uri: 'pages/countDown/page'
         });
     }
+}
+
+function storageGet() {
+    storage.get({
+        key: 'waterCount',
+        success: function (data) {
+            if (parseFloat(data) == NaN) {
+                waterCount = 0.0;
+            } else {
+                waterCount = parseFloat(data);
+            }
+        },
+    });
+}
+
+function storageSet() {
+    storage.set({
+        key: 'waterCount',
+        value: waterCount.toString(),
+        success: function () {
+            console.log('call storage.set success.');
+        }
+    });
 }
