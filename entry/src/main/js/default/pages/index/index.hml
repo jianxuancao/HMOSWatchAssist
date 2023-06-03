@@ -1,5 +1,5 @@
 <stack class="stack-parent">
-    <progress type="arc" class="min-progress" percent="{{ percentage }}"/>
+    <progress type="arc" onclick="updateText" class="min-progress" percent="{{ percentage }}"/>
 
     <div class="container">
         <text class="title1" onlongpress="reset">

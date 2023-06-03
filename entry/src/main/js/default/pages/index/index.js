@@ -20,7 +20,6 @@ export default {
             key: 'waterCount',
             success: function (data) {
                 waterCount = parseFloat(data);
-                console.log('call storage.get success: ' + waterCount);
             }
         });
     },
@@ -44,22 +43,24 @@ export default {
         } else {
             index = 0;
         }
-
         this.text = this.textBank[index];
     },
     plusWater() {
         waterCount++;
         this.updateText();
+        this.storageSet()
     },
     minusWater() {
         if (waterCount != 0) {
             waterCount--;
         }
         this.updateText();
+        this.storageSet()
     },
     increaseTotal() {
         totalWaterCount++;
         this.updateText();
+        this.storageSet()
     },
     decreaseTotal() {
         totalWaterCount--;
@@ -68,10 +69,12 @@ export default {
             totalWaterCount = 1;
         }
         this.updateText();
+        this.storageSet()
     },
     reset() {
         waterCount = 0;
         this.updateText();
+        this.storageSet()
     },
     nextPage() {
         router.replace({
