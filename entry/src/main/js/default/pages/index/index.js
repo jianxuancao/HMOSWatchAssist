@@ -1,5 +1,6 @@
 import router from '@system.router';
 import storage from '@system.storage';
+import vibrator from '@system.vibrator';
 
 var waterCount = 0.0;
 var totalWaterCount = 8.0;
@@ -12,26 +13,9 @@ export default {
         percentage: 0.0
     },
     onInit() {
-        this.storageGet();
         this.updateText();
     },
-    storageGet() {
-        storage.get({
-            key: 'waterCount',
-            success: function (data) {
-                waterCount = parseFloat(data);
-            }
-        });
-    },
-    storageSet() {
-        storage.set({
-            key: 'waterCount',
-            value: waterCount.toString(),
-            success: function () {
-                console.log('call storage.set success.');
-            }
-        });
-    },
+
     updateText() {
         this.title = waterCount + "/" + totalWaterCount;
         this.percentage = waterCount * 100 / totalWaterCount;
@@ -44,23 +28,30 @@ export default {
             index = 0;
         }
         this.text = this.textBank[index];
+
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     plusWater() {
         waterCount++;
         this.updateText();
-        this.storageSet()
     },
     minusWater() {
         if (waterCount != 0) {
             waterCount--;
         }
         this.updateText();
-        this.storageSet()
     },
     increaseTotal() {
         totalWaterCount++;
         this.updateText();
-        this.storageSet()
     },
     decreaseTotal() {
         totalWaterCount--;
@@ -69,12 +60,10 @@ export default {
             totalWaterCount = 1;
         }
         this.updateText();
-        this.storageSet()
     },
     reset() {
         waterCount = 0;
         this.updateText();
-        this.storageSet()
     },
     nextPage() {
         router.replace({
