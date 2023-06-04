@@ -75,7 +75,7 @@ function storageGet() {
     storage.get({
         key: 'waterCount',
         success: function (data) {
-            if (parseFloat(data) == NaN) {
+            if (isNaN(parseFloat(data))) {
                 waterCount = 0.0;
             } else {
                 waterCount = parseFloat(data);
