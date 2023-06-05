@@ -38,18 +38,40 @@ export default {
         this.percentage = 100 - (timeDiff / totalDuration) * 100;
 
         if (timeDiff <= 0) {
-            this.title = "下班了，赶紧滚蛋";
+            this.title = "8小时留给自己,好好休息\n已经下班：";
+            // 时间差->小时和分钟
+            var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
+            var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
+            var seconds = Math.abs(Math.floor((timeDiff % (1000 * 60)) / 1000));
+
+            //更新字幕
+            var formattedTime = ('0' + hours).slice(-2) + ':' +
+            ('0' + minutes).slice(-2) + ':' +
+            ('0' + seconds).slice(-2);
+            this.time = formattedTime;
+        } else if (timeDiff <= 60 * 60) {
+            this.title = "同志，你已本分工作一整天，该休息了";
+            // 时间差->小时和分钟
+            var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
+            var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
+            var seconds = Math.abs(Math.floor((timeDiff % (1000 * 60)) / 1000));
+
+            //更新字幕
+            var formattedTime = ('0' + hours).slice(-2) + ':' +
+            ('0' + minutes).slice(-2) + ':' +
+            ('0' + seconds).slice(-2);
+            this.time = formattedTime;
+        } else {
+            // 时间差->小时和分钟
+            var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            //更新字幕
+            var formattedTime = ('0' + hours).slice(-2) + ':' +
+            ('0' + minutes).slice(-2) + ':' +
+            ('0' + seconds).slice(-2);
+            this.time = formattedTime;
         }
-
-        // 时间差->小时和分钟
-        var hours = Math.floor(timeDiff / (1000 * 60 * 60));
-        var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-        //更新字幕
-        var formattedTime = ('0' + hours).slice(-2) + ':' +
-        ('0' + minutes).slice(-2) + ':' +
-        ('0' + seconds).slice(-2);
-        this.time = formattedTime;
     }
 }
