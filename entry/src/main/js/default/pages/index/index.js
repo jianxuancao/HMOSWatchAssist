@@ -69,8 +69,10 @@ export default {
 }
 
 function storageGet() {
+    const date = new Date();
+    var keyDate = date.getFullYear() + date.getMonth() + date.getDay();
     storage.get({
-        key: 'waterCount',
+        key: keyDate + 'waterCount',
         success: function (data) {
             if (isNaN(parseFloat(data))) {
                 waterCount = 0.0;
@@ -80,7 +82,7 @@ function storageGet() {
         },
     });
     storage.get({
-        key: 'totalWaterCount',
+        key: keyDate + 'totalWaterCount',
         success: function (data) {
             if (isNaN(parseFloat(data))) {
                 totalWaterCount = 8.0;
@@ -92,15 +94,17 @@ function storageGet() {
 }
 
 function storageSet() {
+    const date = new Date();
+    var keyDate = date.getFullYear() + date.getMonth() + date.getDay();
     storage.set({
-        key: 'waterCount',
+        key: keyDate + 'waterCount',
         value: waterCount.toString(),
         success: function () {
             console.log('call storage.set success.');
         }
     });
     storage.set({
-        key: 'totalWaterCount',
+        key: keyDate + 'totalWaterCount',
         value: totalWaterCount.toString(),
         success: function () {
             console.log('call storage.set success.');
