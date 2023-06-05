@@ -13,11 +13,8 @@ export default {
         percentage: 0.0
     },
     onInit() {
+        setInterval(this.updateText, 100); // 每隔0.1秒调用一次
         storageGet();
-        setInterval(this.updateText, 100); // 每隔1秒调用一次
-    },
-    onDestroy() {
-        storageSet();
     },
     updateText() {
         this.title = waterCount + "/" + totalWaterCount;
@@ -82,12 +79,29 @@ function storageGet() {
             }
         },
     });
+    storage.get({
+        key: 'totalWaterCount',
+        success: function (data) {
+            if (isNaN(parseFloat(data))) {
+                totalWaterCount = 8.0;
+            } else {
+                totalWaterCount = parseFloat(data);
+            }
+        },
+    });
 }
 
 function storageSet() {
     storage.set({
         key: 'waterCount',
         value: waterCount.toString(),
+        success: function () {
+            console.log('call storage.set success.');
+        }
+    });
+    storage.set({
+        key: 'totalWaterCount',
+        value: totalWaterCount.toString(),
         success: function () {
             console.log('call storage.set success.');
         }
