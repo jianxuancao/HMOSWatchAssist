@@ -1,6 +1,21 @@
-.min-progress {
+.waterProgress {
     width: 100%;
     height: 100%;
+    start-angle: 0deg;
+    total-angle: 360deg;
+    stroke-width: 40px;
+    color: #00BFFF;
+    background-color:#00475F;
+}
+
+.timeProgress {
+    width: 100%;
+    height: 100%;
+    start-angle: 0deg;
+    total-angle: -360deg;
+    stroke-width: 40px;
+    color: #FE2410;
+    background-color: #5F0D06;
 }
 
 .container {
@@ -16,10 +31,14 @@
     height: 100%;
 }
 
-.title .title2 {
-    width: 200px;
-    height: 35%;
+.title {
+    width: 100%;
     font-size: 38fp;
+    text-align: center;
+}
+
+.titleSmaller {
+    width: 100%;
     text-align: center;
 }
 
@@ -45,9 +64,7 @@
     background-color: red;
 }
 
-.nextPage {
+.swiper-item {
     width: 100%;
-    height: 17%;
-    top: 85%;
+    height: 100%;
 }
-

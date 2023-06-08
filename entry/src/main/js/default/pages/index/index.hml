@@ -1,19 +1,39 @@
-<stack class="stack-parent">
-    <progress type="arc" onclick="updateText" class="min-progress" percent="{{ percentage }}"/>
+<swiper class="container" index="0" vertical="true" loop="false">
+    <div class="swiper-item">
+        <stack class="stack-parent">
+            <progress type="arc" onclick="updateText" class="waterProgress" percent="{{ waterPercentage }}"/>
 
-    <div class="container">
-        <text class="title1" onlongpress="reset">
-            {{ text }}
-        </text>
-        <text class="title" onlongpress="reset">
-            {{ title }}
-        </text>
+            <div class="container">
+                <text class="title" onlongpress="reset">
+                    {{ waterText }}
+                </text>
+                <text class="title" onlongpress="reset">
+                    {{ waterTitle }}
+                </text>
 
-        <div class="btnContainer">
-            <input type="button" class="rightBtn" onclick="minusWater" onlongpress="decreaseTotal" value="-"/>
-            <input type="button" class="leftBtn" onclick="plusWater" onlongpress="increaseTotal" value="+"/>
-        </div>
+                <div class="btnContainer">
+                    <input type="button" class="rightBtn" onclick="minusWater" onlongpress="decreaseTotal"
+                           value="-"/>
+                    <input type="button" class="leftBtn" onclick="plusWater" onlongpress="increaseTotal" value="+"/>
+                </div>
+            </div>
+        </stack>
     </div>
 
-    <input type="button" class="nextPage" onclick="nextPage" value="下一页"/>
-</stack>
+    <div class="swiper-item">
+        <stack class="stack-parent">
+            <progress type="arc" class="timeProgress" percent="{{ timePercentage }}"/>
+
+            <div class="container">
+                <text class="title">
+                    {{ timeTitle }}
+                </text>
+
+                <text class="title">
+                    {{ time }}
+                </text>
+            </div>
+        </stack>
+    </div>
+
+</swiper>
