@@ -1,6 +1,12 @@
 {
   "strings": {
     "hello": "Hello",
-    "world": "World"
+    "world": "World",
+    "dieOfThirst": "How did you not die of thirst",
+    "drinkMore": "Drink more",
+    "drinkTooMuch": "You drink too much",
+    "offWork": "8 Hours for ourselves!\nAlready off duty:",
+    "timeToRest": "Comrade, it's time for a break",
+    "timeToEnd": "Time left"
   }
 }
