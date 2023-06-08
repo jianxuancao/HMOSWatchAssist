@@ -28,8 +28,7 @@
     "js": [
       {
         "pages": [
-          "pages/index/index",
-          "pages/countDown/page"
+          "pages/index/index"
         ],
         "name": "default"
       }
