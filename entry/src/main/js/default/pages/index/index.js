@@ -1,4 +1,5 @@
 import storage from '@system.storage';
+import vibrator from '@system.vibrator';
 
 var waterCount = 0.0;
 var totalWaterCount = 8.0;
@@ -7,7 +8,7 @@ export default {
     data: {
         waterTitle: "",
         waterText: "咋没渴死你",
-        textBank: ["咋没渴死你", "再多喝点吧", "行了，再多就要喝死了"],
+        textBank: ["咋没渴死你", "再多喝点吧", "再多就要喝死了"],
         waterPercentage: 0.0,
 
         timeTitle: "",
@@ -23,7 +24,7 @@ export default {
         this.waterTitle = waterCount + "/" + totalWaterCount;
         this.waterPercentage = waterCount * 100 / totalWaterCount;
         var index = 0;
-        if (this.waterPercentage > 100) {
+        if (this.waterPercentage >= 100) {
             index = 2;
         } else if (this.waterPercentage > 33) {
             index = 1;
@@ -37,6 +38,15 @@ export default {
         waterCount++;
         this.updateWaterText();
         storageSet();
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     minusWater() {
         if (waterCount != 0) {
@@ -44,11 +54,29 @@ export default {
         }
         this.updateWaterText();
         storageSet();
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     increaseTotal() {
         totalWaterCount++;
         this.updateWaterText();
         storageSet();
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     decreaseTotal() {
         totalWaterCount--;
@@ -57,11 +85,29 @@ export default {
         }
         this.updateWaterText();
         storageSet();
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     reset() {
         waterCount = 0;
         this.updateWaterText();
         storageSet();
+        vibrator.vibrate({
+            mode: 'short',
+            success() {
+                console.log('success to vibrate');
+            },
+            fail(data, code) {
+                console.log('handle fail, data :' + data + ', code :' + code);
+            },
+        });
     },
     updateTime() {
         var now = new Date().getTime(); // 获取当前时间的时间戳
@@ -85,7 +131,7 @@ export default {
         this.timePercentage = 100 - (timeDiff / totalDuration) * 100;
 
         if (timeDiff <= 0) {
-            this.timeTitle = "8小时留给自己,好好休息\n已经下班：";
+            this.timeTitle = "8小时留给自己\n已经下班：";
             // 时间差->小时和分钟
             var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
             var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
@@ -97,7 +143,7 @@ export default {
             ('0' + seconds).slice(-2);
             this.time = formattedTime;
         } else if (timeDiff <= 60 * 60) {
-            this.timeTitle = "同志，\n你已本分工作一整天，\n该休息了";
+            this.timeTitle = "同志,该休息了";
             // 时间差->小时和分钟
             var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
             var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));

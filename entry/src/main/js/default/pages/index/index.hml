@@ -1,7 +1,7 @@
-<swiper class="container" index="0">
+<swiper class="container" index="0" vertical="true" loop="false">
     <div class="swiper-item">
         <stack class="stack-parent">
-            <progress type="arc" onclick="updateText" class="progress" percent="{{ waterPercentage }}"/>
+            <progress type="arc" onclick="updateText" class="waterProgress" percent="{{ waterPercentage }}"/>
 
             <div class="container">
                 <text class="title" onlongpress="reset">
@@ -22,10 +22,10 @@
 
     <div class="swiper-item">
         <stack class="stack-parent">
-            <progress type="arc" class="progress" percent="{{ timePercentage }}"/>
+            <progress type="arc" class="timeProgress" percent="{{ timePercentage }}"/>
 
             <div class="container">
-                <text class="titleSmaller">
+                <text class="title">
                     {{ timeTitle }}
                 </text>
 
