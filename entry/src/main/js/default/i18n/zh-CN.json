@@ -1,6 +1,12 @@
 {
   "strings": {
     "hello": "您好",
-    "world": "世界"
+    "world": "世界",
+    "dieOfThirst": "咋没渴死你",
+    "drinkMore": "再多喝点吧",
+    "drinkTooMuch": "再多就要喝死了",
+    "offWork": "8小时留给自己\n已经下班：",
+    "timeToRest": "同志,该休息了",
+    "timeToEnd": "距离下班还有"
   }
 }

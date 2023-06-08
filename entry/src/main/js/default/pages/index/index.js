@@ -7,8 +7,7 @@ var totalWaterCount = 8.0;
 export default {
     data: {
         waterTitle: "",
-        waterText: "咋没渴死你",
-        textBank: ["咋没渴死你", "再多喝点吧", "再多就要喝死了"],
+        waterText: "",
         waterPercentage: 0.0,
 
         timeTitle: "",
@@ -16,6 +15,7 @@ export default {
         timePercentage: 0
     },
     onInit() {
+        this.waterText = this.$t('strings.dieOfThirst');
         storageGet();
         setInterval(this.updateWaterText, 100); // 每隔0.1秒调用一次
         setInterval(this.updateTime, 1000); // 每隔1秒调用一次
@@ -25,14 +25,12 @@ export default {
         this.waterPercentage = waterCount * 100 / totalWaterCount;
         var index = 0;
         if (this.waterPercentage >= 100) {
-            index = 2;
+            this.waterText = this.$t('strings.drinkTooMuch');
         } else if (this.waterPercentage > 33) {
-            index = 1;
+            this.waterText = this.$t('strings.drinkMore');
         } else {
-            index = 0;
+            this.waterText = this.$t('strings.dieOfThirst');
         }
-
-        this.waterText = this.textBank[index];
     },
     plusWater() {
         waterCount++;
@@ -131,7 +129,7 @@ export default {
         this.timePercentage = 100 - (timeDiff / totalDuration) * 100;
 
         if (timeDiff <= 0) {
-            this.timeTitle = "8小时留给自己\n已经下班：";
+            this.timeTitle = this.$t('strings.offWork');
             // 时间差->小时和分钟
             var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
             var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
@@ -143,7 +141,7 @@ export default {
             ('0' + seconds).slice(-2);
             this.time = formattedTime;
         } else if (timeDiff <= 60 * 60) {
-            this.timeTitle = "同志,该休息了";
+            this.timeTitle = this.$t('strings.timeToRest');
             // 时间差->小时和分钟
             var hours = Math.abs(Math.floor(timeDiff / (1000 * 60 * 60)));
             var minutes = Math.abs(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
@@ -155,7 +153,7 @@ export default {
             ('0' + seconds).slice(-2);
             this.time = formattedTime;
         } else {
-            this.timeTitle = "距离下班还有";
+            this.timeTitle = this.$t('strings.timeToEnd');
 
             // 时间差->小时和分钟
             var hours = Math.floor(timeDiff / (1000 * 60 * 60));
