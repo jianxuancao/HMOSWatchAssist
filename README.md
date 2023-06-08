@@ -19,3 +19,6 @@ A handy application for lite Harmony OS watch, (NOT THE FULL SCALE Harmony OS), 
  - en-us
 
 ArkTS 3.0.0 API 7：
+
+![喝水Drink](https://github.com/jianxuancao/HMOSWatchAssist/blob/c595cc55468230ef5ea9912f55b18e0f55e629b8/readMeImage/waterPage.png?raw=true)
+![倒计时CountDown](https://github.com/jianxuancao/HMOSWatchAssist/blob/c595cc55468230ef5ea9912f55b18e0f55e629b8/readMeImage/timePage.png?raw=true)
