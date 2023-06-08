@@ -1,4 +1,4 @@
-<stack class="stack-parent" onclick="update">
+<stack class="stack-parent">
     <progress type="arc" class="min-progress" percent="{{ percentage }}"/>
 
     <div class="container">

@@ -1,19 +1,28 @@
-<stack class="stack-parent">
-    <progress type="arc" onclick="updateText" class="min-progress" percent="{{ percentage }}"/>
+<swiper class="container" index="1">
+    <div class="swiper-item">
+        <stack class="stack-parent">
+            <progress type="arc" onclick="updateText" class="min-progress" percent="{{ percentage }}"/>
 
-    <div class="container">
-        <text class="title1" onlongpress="reset">
-            {{ text }}
-        </text>
-        <text class="title" onlongpress="reset">
-            {{ title }}
-        </text>
+            <div class="container">
+                <text class="title1" onlongpress="reset">
+                    {{ text }}
+                </text>
+                <text class="title" onlongpress="reset">
+                    {{ title }}
+                </text>
 
-        <div class="btnContainer">
-            <input type="button" class="rightBtn" onclick="minusWater" onlongpress="decreaseTotal" value="-"/>
-            <input type="button" class="leftBtn" onclick="plusWater" onlongpress="increaseTotal" value="+"/>
-        </div>
+                <div class="btnContainer">
+                    <input type="button" class="rightBtn" onclick="minusWater" onlongpress="decreaseTotal" value="-"/>
+                    <input type="button" class="leftBtn" onclick="plusWater" onlongpress="increaseTotal" value="+"/>
+                </div>
+            </div>
+
+            <input type="button" class="nextPage" onclick="nextPage" value="下一页"/>
+        </stack>
     </div>
 
-    <input type="button" class="nextPage" onclick="nextPage" value="下一页"/>
-</stack>
+    <div class="swiper-item">
+        <text>2</text>
+    </div>
+
+</swiper>
